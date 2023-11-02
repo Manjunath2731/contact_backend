@@ -67,6 +67,13 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 });
 
+//@desc logout user
+//@route POST /api/users/logout
+//@access public
+const logoutUser = asyncHandler(async (req, res) => {
+  res.status(200).json({ accessToken: null });
+});
+
 //@desc Current user info
 //@route POST /api/users/current
 //@access private
@@ -74,4 +81,4 @@ const currentUser = asyncHandler(async (req, res) => {
   res.json(req.user);
 });
 
-module.exports = { registerUser, loginUser, currentUser};
+module.exports = { registerUser, loginUser, currentUser, logoutUser};
